@@ -10,6 +10,8 @@ public class RoomCard : MonoBehaviour
     public TextMeshProUGUI title;
     public TextMeshProUGUI range;
     public Image lockImage;
+    public Button playNow;
+    public Button createTableButton;
 
     private bool _available;
 
@@ -23,8 +25,12 @@ public class RoomCard : MonoBehaviour
         title.text = roomInfo.roomName;
         range.text = "Bet Range" + ": \n" + roomInfo.minBet + "-" + roomInfo.maxBet;
 
+        // If player gem is enough to enter the room 
         _available = AppData.GetPlayerGem() <= roomInfo.entryThreshold;
         lockImage.enabled = _available;
+        playNow.enabled = _available;
+        createTableButton.enabled = _available;
+
     }
 
 

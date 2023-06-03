@@ -886,6 +886,8 @@ MonoBehaviour:
   title: {fileID: 7810525327905913021}
   range: {fileID: 9017234566126058119}
   lockImage: {fileID: 4300686027936731217}
+  playNow: {fileID: 5116698337413899992}
+  createTableButton: {fileID: 7911900342009532567}
 --- !u!114 &4035982364934832909
 MonoBehaviour:
   m_ObjectHideFlags: 0
