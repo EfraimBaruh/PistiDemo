@@ -26,10 +26,10 @@ public class RoomCard : MonoBehaviour
         range.text = "Bet Range" + ": \n" + roomInfo.minBet + "-" + roomInfo.maxBet;
 
         // If player gem is enough to enter the room 
-        _available = AppData.GetPlayerGem() <= roomInfo.entryThreshold;
-        lockImage.enabled = _available;
-        playNow.enabled = _available;
-        createTableButton.enabled = _available;
+        _available = AppData.GetPlayerGem() > roomInfo.entryThreshold;
+        lockImage.enabled = !_available;
+        playNow.interactable = _available;
+        createTableButton.interactable = _available;
 
     }
 
