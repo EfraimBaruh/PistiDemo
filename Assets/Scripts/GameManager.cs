@@ -1,10 +1,15 @@
-
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public List<Card> allCards = new List<Card>();
+
+    private Queue<Card> AvailableCards = new();
+    private List<Queue<Card>> playerQueues = new List<Queue<Card>>(); 
 
     private void Awake()
     {
@@ -17,15 +22,24 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
-
-            AppData.Initialize();
         }
     }
 
     private void Start()
     {
-        Debug.Log(AppData.GetPlayerName());
+        foreach (Card card in allCards)
+            AvailableCards.Enqueue(card);
     }
 
+    public IEnumerator GameCore()
+    {
+
+        yield return null;
+    }
+
+    private void ShuffleCards(List<Card> carList)
+    {
+
+    }
 
 }

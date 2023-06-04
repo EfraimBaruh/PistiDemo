@@ -40,21 +40,30 @@ public class SceneLoader : MonoBehaviour
 
         while (!operation.isDone && operation.progress > .76)
         {
-            loadingPercent.text = "%" + (int)(operation.progress * 100);
-            sceneBar.value = operation.progress;
+            if (loadingPercent)
+            {
+                loadingPercent.text = "%" + (int)(operation.progress * 100);
+                sceneBar.value = operation.progress;
+            }
             yield return null;
         }
         while (counter < 80)
         {
             counter++;
-            loadingPercent.text = "%" + counter;
-            sceneBar.value = (float)counter / 100;
+            if (loadingPercent)
+            {
+                loadingPercent.text = "%" + counter;
+                sceneBar.value = (float)counter / 100;
+            }
             yield return new WaitForSeconds(Random.Range(0.02f, 0.06f));
         }
 
         operation.allowSceneActivation = true;
-        sceneBar.value = 1f;
-        loadingPercent.text = "%100";
+        if (loadingPercent)
+        {
+            sceneBar.value = 1f;
+            loadingPercent.text = "%100";
+        }
         StopAllCoroutines();
 
 

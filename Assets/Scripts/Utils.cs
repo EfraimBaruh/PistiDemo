@@ -7,24 +7,6 @@ using Nakama.TinyJson;
 
 public static class Utils
 {
-   
-
-    public static int GetGrabbableCount(GameLevel gameLevel)
-    {
-        // minimum 3 of the grabbable object should be on the basket, depending on the game level, number should be increased.
-        int random = UnityEngine.Random.Range(3, 7);
-
-        return random + gameLevel.levelId * 2;
-    }
-
-    public static Vector3 GetRandomOffset()
-    {
-       
-        float x = UnityEngine.Random.Range(-0.143f, 0.143f);
-        float z = UnityEngine.Random.Range(-0.062f, 0.062f);
-
-        return new Vector3(x, 0.24f, z);
-    }
 
     /// <summary>
     /// Converts a byte array of a UTF8 encoded JSON string into a Dictionary.
