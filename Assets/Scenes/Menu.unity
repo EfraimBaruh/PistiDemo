@@ -130,6 +130,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1241077249}
     m_Modifications:
+    - target: {fileID: 520940167446928652, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 520940167446928652, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241077250}
+    - target: {fileID: 520940167446928652, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 520940167446928652, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PopUpController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 520940167446928652, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 538184142}
+    - target: {fileID: 520940167446928652, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1118061053318214346, guid: 67f67660ceeea41feb7a5d448d2ae580, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -270,6 +294,7 @@ GameObject:
   - component: {fileID: 98549822}
   - component: {fileID: 98549821}
   - component: {fileID: 98549820}
+  - component: {fileID: 98549823}
   m_Layer: 5
   m_Name: NameEntry
   m_TagString: Untagged
@@ -377,7 +402,31 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1241077251}
+        m_TargetAssemblyTypeName: UserNameController, Assembly-CSharp
+        m_MethodName: UpdateUserName
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 98549823}
+        m_TargetAssemblyTypeName: ScriptableEventSystem.ScriptableEventInvoker, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -434,6 +483,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98549818}
   m_CullTransparentMesh: 1
+--- !u!114 &98549823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98549818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f7282ca84cb4842ab52e6b083edb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 4fbaf6225dd564f5f8457061ffd05f76, type: 2}
 --- !u!1 &456727881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player_123
+  m_text: Efraim
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1495323a7d1bb49ba93e002a688f3f94, type: 2}
   m_sharedMaterial: {fileID: -1361387506139082499, guid: 1495323a7d1bb49ba93e002a688f3f94, type: 2}
@@ -1318,8 +1380,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 1862270975
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.43137255}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1884,6 +1946,7 @@ GameObject:
   - component: {fileID: 1241077246}
   - component: {fileID: 1241077245}
   - component: {fileID: 1241077250}
+  - component: {fileID: 1241077251}
   m_Layer: 5
   m_Name: PopUps
   m_TagString: Untagged
@@ -1996,6 +2059,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 541553934}
+--- !u!114 &1241077251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241077244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f44f57ca0d3463d8d047d831e72a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFirstSession:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1241077250}
+        m_TargetAssemblyTypeName: PopUpController, Assembly-CSharp
+        m_MethodName: OpenPopUp
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 538184142}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1338918987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2558,7 @@ GameObject:
   - component: {fileID: 1764409258}
   - component: {fileID: 1764409257}
   - component: {fileID: 1764409259}
+  - component: {fileID: 1764409260}
   m_Layer: 5
   m_Name: PlayerName
   m_TagString: Untagged
@@ -2605,6 +2696,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+--- !u!114 &1764409260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764409255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3f58b894a64e33947ac7863dcfa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEventListeners:
+  - Event: {fileID: 11400000, guid: 4fbaf6225dd564f5f8457061ffd05f76, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1764409259}
+          m_TargetAssemblyTypeName: UIValue, Assembly-CSharp
+          m_MethodName: UpdateValue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1813248121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,7 +2986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2054401216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1241077250}
+        m_TargetAssemblyTypeName: PopUpController, Assembly-CSharp
+        m_MethodName: ClosePopUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2054401216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3069,7 +3201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3077,7 +3209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3125,11 +3257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1959.0491
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -280.99573
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3195,7 +3327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3203,7 +3335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3243,11 +3375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2931.7483
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -280.99573
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3313,7 +3445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3321,7 +3453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3361,11 +3493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 986.3497
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -280.99573
       objectReference: {fileID: 0}
     - target: {fileID: 7810525328358902572, guid: 4e38f152b986f4e538991b8f3567f340, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

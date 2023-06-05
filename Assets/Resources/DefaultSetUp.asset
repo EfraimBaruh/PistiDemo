@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcb19ca4a0b54c7f87b74b5279c2600, type: 3}
   m_Name: DefaultSetUp
   m_EditorClassIdentifier: 
+  initialName: Efraim
   initialGem: 1000

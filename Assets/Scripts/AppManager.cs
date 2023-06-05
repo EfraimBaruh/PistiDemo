@@ -36,4 +36,9 @@ public class AppManager : MonoBehaviour
     {
         this.playerCount = playerCount == 4 ? PlayerCount.Four : PlayerCount.Two;
     }
+
+    private void OnApplicationQuit()
+    {
+        AppData.SaveGame();
+    }
 }
