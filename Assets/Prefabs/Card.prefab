@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7904533108955097729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ RectTransform:
   m_GameObject: {fileID: 7904533108997625484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7904533108955097729}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db4de1f1223fc44868c1b436d0f0fade, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01e888c19304c47e18257f5c04685298, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -273,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: 0
   pip: 1
+  cardBackground: {fileID: 21300000, guid: 01e888c19304c47e18257f5c04685298, type: 3}
+  cardForeground: {fileID: 21300000, guid: db4de1f1223fc44868c1b436d0f0fade, type: 3}
 --- !u!1 &7904533109664770172
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7904533109664770173
 RectTransform:
   m_ObjectHideFlags: 0

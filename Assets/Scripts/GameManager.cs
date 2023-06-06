@@ -2,14 +2,22 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public Transform tableSlot;
+    public List<Transform> playerSlots;
     public List<Card> allCards = new List<Card>();
 
-    private Queue<Card> AvailableCards = new();
-    private List<Queue<Card>> playerQueues = new List<Queue<Card>>(); 
+    public UnityEvent onTableStart;
+
+    private List<Queue<Card>> playerQueues = new List<Queue<Card>>();
+    private Queue<Card> _availableCards = new();
+    private Queue<Card> _tableCards = new();
+
 
     private void Awake()
     {
@@ -27,19 +35,81 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        foreach (Card card in allCards)
-            AvailableCards.Enqueue(card);
+        StartCoroutine(GameCore());
     }
 
     public IEnumerator GameCore()
     {
+        SetUpPlayers();
+
+        ShuffleCards(ref allCards);
+
+        foreach (Card card in allCards)
+            _availableCards.Enqueue(card);
+
+
+        DraftForPlayers();
+
+        DraftForTable();
 
         yield return null;
+
+        onTableStart.Invoke();
+
     }
 
-    private void ShuffleCards(List<Card> carList)
+    private void SetUpPlayers()
+    {
+        int playerCount = (int)AppManager.Instance.playerCount;
+
+        Utils.Resize(playerSlots, playerCount);
+
+        for (int i = 0; i < playerCount; i++)
+            playerQueues.Add(new Queue<Card>());
+    }
+
+    private void ShuffleCards(ref List<Card> carList)
+    {
+        Utils.Shuffle(carList);
+    }
+
+    private void DraftForPlayers()
     {
 
+        for (int i = 0; i < playerQueues.Count; i++)
+        {
+            for (int j = 0; j < 4; j++)
+                playerQueues[i].Enqueue(_availableCards.Dequeue());
+        }
+
+        for (int i = 0; i < playerQueues.Count; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                Card card = playerQueues[i].Dequeue();
+                card.transform.SetParent(playerSlots[i]);
+                card.transform.localEulerAngles = Vector3.forward * GetCardAngle(j);
+            }
+        }
     }
+
+    private void DraftForTable()
+    {
+        // Set up initial cards on table.
+        for (int j = 0; j < 4; j++)
+        {
+            Card card = _availableCards.Dequeue();
+            _tableCards.Enqueue(card);
+            card.transform.SetParent(tableSlot);
+            card.transform.position = Vector3.zero;
+            card.transform.localEulerAngles = Vector3.forward * GetCardAngle(j);
+            card.SwitchCardFace(j == 3);
+
+        }
+        
+    }
+
+    private float GetCardAngle(int index)
+        {return -10f* index + 15;}
 
 }

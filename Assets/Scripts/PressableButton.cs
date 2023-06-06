@@ -12,9 +12,16 @@ public class PressableButton : MonoBehaviour
         _button.onClick.AddListener(ButtonClick);
     }
 
-    protected virtual void ButtonClick()
+    protected virtual void ButtonClick(){}
+
+    public void SetButtonInteractable(bool interactable)
     {
-        
+        // only enable-disable listener on button.
+
+        _button.onClick.RemoveAllListeners();
+
+        if (interactable)
+            _button.onClick.AddListener(ButtonClick);
     }
 
 }

@@ -27,13 +27,40 @@ public enum Suits
     Spades = 3
 }
 
+[RequireComponent(typeof(Image))]
 public class Card : PressableButton
 {
-     public Suits suit;
-     public Pips pip;
+    public Suits suit;
+    public Pips pip;
+
+    public Sprite cardBackground;
+    public Sprite cardForeground;
+
+    private Image _image;
+    private bool showCard;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _image = GetComponent<Image>();
+
+        SwitchCardFace(showCard);
+        SetButtonInteractable(false);
+    }
 
     protected override void ButtonClick()
     {
         transform.DOMove(Vector3.zero, 0.3f);
+    }
+
+    public void SwitchCardFace(bool show)
+    {
+        showCard = show;
+
+        _image.sprite = showCard ? cardForeground : cardBackground;
+
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(showCard);
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -10,7 +8,6 @@ public class AppData
 
     public static void Initialize()
     {
-
         if (!LoadGame())
         {
             DefaultSetup defaultSetup = Resources.Load<DefaultSetup>("DefaultSetUp");
