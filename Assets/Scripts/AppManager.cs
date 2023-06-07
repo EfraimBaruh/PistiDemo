@@ -13,6 +13,7 @@ public class AppManager : MonoBehaviour
     public static AppManager Instance { get; private set; }
 
     public PlayerCount playerCount = PlayerCount.Two;
+    public int gameBet = 0;
 
     private void Awake()
     {
@@ -34,7 +35,12 @@ public class AppManager : MonoBehaviour
 
     public void SetGameType(int playerCount)
     {
-        this.playerCount = playerCount == 4 ? PlayerCount.Four : PlayerCount.Two;
+        this.playerCount = (PlayerCount)playerCount;
+    }
+
+    public void SetGameBet(int bet)
+    {
+        gameBet = bet;
     }
 
     private void OnApplicationQuit()

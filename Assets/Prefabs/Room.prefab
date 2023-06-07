@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 3037325440169433526}
   - component: {fileID: 2960976852644983746}
   - component: {fileID: 7911900342009532567}
+  - component: {fileID: 6244371875916165766}
   m_Layer: 5
   m_Name: CreateTable
   m_TagString: Untagged
@@ -257,7 +258,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2960976852644983746}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6244371875916165766}
+        m_TargetAssemblyTypeName: ScriptableEventSystem.ScriptableEventInvoker, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6244371875916165766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062132135281043918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f7282ca84cb4842ab52e6b083edb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 74726a2ec7e1844fb81ca2a08b98d93e, type: 2}
 --- !u!1 &3399818494118845162
 GameObject:
   m_ObjectHideFlags: 0
