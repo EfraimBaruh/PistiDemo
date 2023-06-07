@@ -52,6 +52,9 @@ public class Card : PressableButton
     protected override void ButtonClick()
     {
         transform.DOMove(Vector3.zero, 0.3f);
+
+        if (transform.parent.GetComponent<PlayerManager>())
+            transform.parent.GetComponent<PlayerManager>().UseCard(this);
     }
 
     public void SwitchCardFace(bool show)

@@ -17,4 +17,13 @@ public class PlayerManager : MonoBehaviour
             card.SwitchCardFace(true);
         }
     }
+
+    public void UseCard(Card card)
+    {
+        if (_playerCards.Contains(card))
+        {
+            _playerCards.Remove(card);
+            GameManager.Instance.OnPlayerUsesCard(0, card);
+        }
+    }
 }

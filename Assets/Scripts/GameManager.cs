@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent onTableStart;
 
-    private List<Queue<Card>> playerQueues = new List<Queue<Card>>();
+    private List<List<Card>> playersHoldings = new List<List<Card>>();
     private Queue<Card> _availableCards = new();
     private Queue<Card> _tableCards = new();
 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         Utils.Resize(playerSlots, playerCount);
 
         for (int i = 0; i < playerCount; i++)
-            playerQueues.Add(new Queue<Card>());
+            playersHoldings.Add(new List<Card>());
     }
 
     private void ShuffleCards(ref List<Card> carList)
@@ -76,17 +76,17 @@ public class GameManager : MonoBehaviour
     private void DraftForPlayers()
     {
 
-        for (int i = 0; i < playerQueues.Count; i++)
+        for (int i = 0; i < playersHoldings.Count; i++)
         {
             for (int j = 0; j < 4; j++)
-                playerQueues[i].Enqueue(_availableCards.Dequeue());
+                playersHoldings[i].Add(_availableCards.Dequeue());
         }
 
-        for (int i = 0; i < playerQueues.Count; i++)
+        for (int i = 0; i < playersHoldings.Count; i++)
         {
             for (int j = 0; j < 4; j++)
             {
-                Card card = playerQueues[i].Dequeue();
+                Card card = playersHoldings[i][j];
                 card.transform.SetParent(playerSlots[i]);
                 card.transform.localEulerAngles = Vector3.forward * GetCardAngle(j);
             }
@@ -109,7 +109,14 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void OnPlayerUsesCard(int playerId, Card card)
+    {
+        playersHoldings[playerId].Remove(card);
+        card.transform.SetParent(tableSlot);
+    }
+
     private float GetCardAngle(int index)
         {return -10f* index + 15;}
+
 
 }
