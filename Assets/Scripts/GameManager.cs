@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public static Action<int> onNextPlayer;
+
     public Transform tableSlot;
     public List<Transform> playerSlots;
     public List<Card> allCards = new List<Card>();
@@ -17,6 +19,13 @@ public class GameManager : MonoBehaviour
     private List<List<Card>> playersHoldings = new List<List<Card>>();
     private Queue<Card> _availableCards = new();
     private Queue<Card> _tableCards = new();
+
+    private int currentPlayer;
+
+    public Card[] TableCardList()
+    {
+        return _tableCards.ToArray();
+    }
 
 
     private void Awake()
@@ -113,6 +122,44 @@ public class GameManager : MonoBehaviour
     {
         playersHoldings[playerId].Remove(card);
         card.transform.SetParent(tableSlot);
+        _tableCards.Enqueue(card);
+
+        ControlPisti(playerId);
+        NextPlayer();
+    }
+
+    private void ControlPisti(int playerId)
+    {
+        if (_tableCards.Count < 2)
+            return;
+
+        else
+        {
+            Debug.Log("ControllingCards");
+
+
+            Card[] cards = _tableCards.ToArray();
+            Debug.Log(cards.Length);
+
+            if (cards[cards.Length-1].pip == cards[cards.Length-2].pip)
+            {
+                if (cards.Length == 5)
+                    Debug.Log("Pisti");
+                else
+                    Debug.Log("Points taken and cards");
+
+                Debug.Log("Player " + playerId + " has won points");
+               
+            }
+        }
+    }
+
+    private void NextPlayer()
+    {
+        currentPlayer++;
+        currentPlayer = currentPlayer % playerSlots.Count;
+        onNextPlayer.Invoke(currentPlayer);
+
     }
 
     private float GetCardAngle(int index)

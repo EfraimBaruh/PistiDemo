@@ -53,8 +53,16 @@ public class Card : PressableButton
     {
         transform.DOMove(Vector3.zero, 0.3f);
 
+        if (!showCard)
+            SwitchCardFace(true);
+
         if (transform.parent.GetComponent<PlayerManager>())
             transform.parent.GetComponent<PlayerManager>().UseCard(this);
+    }
+
+    public void ClickCard()
+    {
+        ButtonClick();
     }
 
     public void SwitchCardFace(bool show)

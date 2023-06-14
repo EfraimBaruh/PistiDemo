@@ -8,6 +8,7 @@ public class AppData
 
     public static void Initialize()
     {
+        
         if (!LoadGame())
         {
             DefaultSetup defaultSetup = Resources.Load<DefaultSetup>("DefaultSetUp");

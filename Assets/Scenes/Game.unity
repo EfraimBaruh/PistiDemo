@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 87167246}
   - component: {fileID: 87167245}
   - component: {fileID: 87167248}
+  - component: {fileID: 87167249}
   m_Layer: 5
   m_Name: Player1
   m_TagString: Untagged
@@ -635,9 +636,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 87167243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ef8fc84d95e543578077c4e6e834db8, type: 3}
+  m_Script: {fileID: 11500000, guid: e49e76b429207475a8b787b397692334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
+  isBotPlayer: 1
+--- !u!114 &87167249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87167243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3f58b894a64e33947ac7863dcfa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEventListeners:
+  - Event: {fileID: 11400000, guid: 34d028c9313b2496fa35d44c03e98139, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 87167248}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: EnablePlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &90354975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2288,6 +2320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49e76b429207475a8b787b397692334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
+  isBotPlayer: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5897,6 +5931,7 @@ GameObject:
   - component: {fileID: 1163326056}
   - component: {fileID: 1163326055}
   - component: {fileID: 1163326058}
+  - component: {fileID: 1163326059}
   m_Layer: 5
   m_Name: Player2
   m_TagString: Untagged
@@ -5997,9 +6032,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1163326053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ef8fc84d95e543578077c4e6e834db8, type: 3}
+  m_Script: {fileID: 11500000, guid: e49e76b429207475a8b787b397692334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 2
+  isBotPlayer: 1
+--- !u!114 &1163326059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163326053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3f58b894a64e33947ac7863dcfa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEventListeners:
+  - Event: {fileID: 11400000, guid: 34d028c9313b2496fa35d44c03e98139, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1163326058}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: EnablePlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1223141497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7485,6 +7551,7 @@ GameObject:
   - component: {fileID: 1557361534}
   - component: {fileID: 1557361533}
   - component: {fileID: 1557361536}
+  - component: {fileID: 1557361537}
   m_Layer: 5
   m_Name: Player3
   m_TagString: Untagged
@@ -7585,9 +7652,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1557361531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ef8fc84d95e543578077c4e6e834db8, type: 3}
+  m_Script: {fileID: 11500000, guid: e49e76b429207475a8b787b397692334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 3
+  isBotPlayer: 1
+--- !u!114 &1557361537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557361531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3f58b894a64e33947ac7863dcfa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEventListeners:
+  - Event: {fileID: 11400000, guid: 34d028c9313b2496fa35d44c03e98139, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1557361536}
+          m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+          m_MethodName: EnablePlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1643860132
 PrefabInstance:
   m_ObjectHideFlags: 0
