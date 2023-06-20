@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
         Utils.Shuffle(carList);
     }
 
-    private void DraftForPlayers()
+    public void DraftForPlayers()
     {
 
         for (int i = 0; i < playersHoldings.Count; i++)
@@ -135,23 +136,43 @@ public class GameManager : MonoBehaviour
 
         else
         {
-            Debug.Log("ControllingCards");
-
 
             Card[] cards = _tableCards.ToArray();
             Debug.Log(cards.Length);
 
-            if (cards[cards.Length-1].pip == cards[cards.Length-2].pip)
+            if (cards[cards.Length-1].pip == cards[cards.Length-2].pip || cards[cards.Length - 1].pip == Pips.Jack)
             {
                 if (cards.Length == 5)
                     Debug.Log("Pisti");
                 else
                     Debug.Log("Points taken and cards");
 
-                Debug.Log("Player " + playerId + " has won points");
+                var y = 3 * (playerId % 2 == 0 ? -1 : 1);
+                var x = 7 * (playerId % 3 == 0 ? 1 : -1);
+
+                StartCoroutine(CollectCards(x, y));
                
             }
         }
+    }
+
+    private IEnumerator CollectCards(float X_target, float Y_target)
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        foreach (Card card in _tableCards)
+        {
+            card.SwitchCardFace(false);
+
+            card.transform.DOMoveY(Y_target, 0.6f);
+
+            card.transform.DOMoveX(X_target, 0.6f).OnComplete(() =>
+            {
+                card.transform.parent = null;
+            });
+        }
+
+        _tableCards = new Queue<Card>();
     }
 
     private void NextPlayer()

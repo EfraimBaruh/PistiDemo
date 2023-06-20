@@ -44,14 +44,29 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayersTurn(int playerID)
     {
+
+        if(playerID == this.playerID)
+        {
+            if (_playerCards.Count == 0)
+            {
+                GameManager.Instance.DraftForPlayers();
+
+                return;
+            }
+        }
         if (!isBotPlayer)
         {
+            _playerCards = new List<Card>();
+
             foreach (Transform child in transform)
             {
                 Card card = child.GetComponent<Card>();
                 _playerCards.Add(card);
 
                 card.SetButtonInteractable(playerID == this.playerID);
+
+                Debug.Log(_playerCards.Count);
+
             }
         }
         else
@@ -88,11 +103,14 @@ public class PlayerManager : MonoBehaviour
 
         Card[] tableCards = GameManager.Instance.TableCardList();
 
+        if (tableCards.Length == 0)
+            return false;
+
         Card latestCard = tableCards[tableCards.Length - 1];
 
         foreach(Card card in _playerCards)
         {
-            if(latestCard.pip == card.pip)
+            if(latestCard.pip == card.pip || card.pip == Pips.Jack)
             {
                 cardIndex = _playerCards.IndexOf(card);
                 return true;

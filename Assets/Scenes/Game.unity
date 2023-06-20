@@ -2421,6 +2421,18 @@ PrefabInstance:
       propertyPath: m_text
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7904533108955097730, guid: 4f5074b9866394538800a5c8c679c493, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904533108955097730, guid: 4f5074b9866394538800a5c8c679c493, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904533108955097730, guid: 4f5074b9866394538800a5c8c679c493, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7904533108997625484, guid: 4f5074b9866394538800a5c8c679c493, type: 3}
       propertyPath: m_Name
       value: C_7
