@@ -83,9 +83,16 @@ public class GameManager : MonoBehaviour
         Utils.Shuffle(carList);
     }
 
+    public void ReDraftForPlayers()
+    {
+        DraftForPlayers();
+
+        onTableStart.Invoke();
+
+    }
+
     public void DraftForPlayers()
     {
-
         for (int i = 0; i < playersHoldings.Count; i++)
         {
             for (int j = 0; j < 4; j++)
@@ -101,6 +108,8 @@ public class GameManager : MonoBehaviour
                 card.transform.localEulerAngles = Vector3.forward * GetCardAngle(j);
             }
         }
+
+        Debug.LogError("Available Card count: " + _availableCards.Count);
     }
 
     private void DraftForTable()
@@ -138,7 +147,6 @@ public class GameManager : MonoBehaviour
         {
 
             Card[] cards = _tableCards.ToArray();
-            Debug.Log(cards.Length);
 
             if (cards[cards.Length-1].pip == cards[cards.Length-2].pip || cards[cards.Length - 1].pip == Pips.Jack)
             {

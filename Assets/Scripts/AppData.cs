@@ -8,7 +8,8 @@ public class AppData
 
     public static void Initialize()
     {
-        
+
+
         if (!LoadGame())
         {
             DefaultSetup defaultSetup = Resources.Load<DefaultSetup>("DefaultSetUp");
@@ -19,7 +20,7 @@ public class AppData
             };
         }
 
-        
+
     }
 
     public static string GetPlayerName()
@@ -72,7 +73,7 @@ public class AppData
         FileStream file = File.Create(Application.persistentDataPath
                      + "/PlayerData.dat");
 
-        
+
         bf.Serialize(file, playerData);
         file.Close();
     }

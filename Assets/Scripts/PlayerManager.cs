@@ -30,7 +30,6 @@ public class PlayerManager : MonoBehaviour
             card.SwitchCardFace(!isBotPlayer);
         }
 
-        Debug.Log(playerID + " " + _playerCards.Count);
     }
 
     public void UseCard(Card card)
@@ -45,12 +44,11 @@ public class PlayerManager : MonoBehaviour
     private void OnPlayersTurn(int playerID)
     {
 
-        if(playerID == this.playerID)
+        if (playerID == this.playerID)
         {
             if (_playerCards.Count == 0)
             {
-                GameManager.Instance.DraftForPlayers();
-
+                GameManager.Instance.ReDraftForPlayers();
                 return;
             }
         }
