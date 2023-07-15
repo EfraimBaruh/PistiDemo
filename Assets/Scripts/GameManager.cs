@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public static Action<int> onNextPlayer;
+    public static Action<int, int> onPlayerWon;
 
     public Transform tableSlot;
     public List<Transform> playerSlots;
@@ -150,10 +151,17 @@ public class GameManager : MonoBehaviour
 
             if (cards[cards.Length-1].pip == cards[cards.Length-2].pip || cards[cards.Length - 1].pip == Pips.Jack)
             {
-                if (cards.Length == 5)
+                //TODO: Edit this part
+                if (cards.Length == 5 || cards.Length == 2)
+                {
+                    onPlayerWon.Invoke(playerId, 10);
                     Debug.Log("Pisti");
+                }
                 else
+                {
+                    onPlayerWon.Invoke(playerId, 3);
                     Debug.Log("Points taken and cards");
+                }
 
                 var y = 3 * (playerId % 2 == 0 ? -1 : 1);
                 var x = 7 * (playerId % 3 == 0 ? 1 : -1);

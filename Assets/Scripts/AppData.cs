@@ -19,8 +19,6 @@ public class AppData
                 gem = defaultSetup.initialGem
             };
         }
-
-
     }
 
     public static string GetPlayerName()
